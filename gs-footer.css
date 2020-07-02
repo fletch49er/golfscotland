@@ -1,0 +1,31 @@
+#gs-sponsors {
+	position: relative;
+	height: 160px;
+	margin-bottom: 16px;
+}
+/*.gs-sponsor {
+	position: absolute;
+	top: 0px;
+	right: 0px; 
+	width: 320px;
+} */
+#gs-pga, #gs-pga img {
+	 width: 225px;
+}
+#gs-pga {
+	margin: 0px auto 8px auto;
+}
+#gs-img-tagline {
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-align: center;
+	color: #0065bd; /* blue */
+}
+@media only screen and (max-width: 360px) {
+	
+/*	.gs-sponsor {
+		position: relative; 
+		width: 100%;
+	} */
+}
