@@ -6,7 +6,7 @@
 if (isset($_GET)) :
 	$golfCourseID = $_GET['courseID'];
 else :
-	$golfCourseID = 1;
+	$golfCourseID = 2;
 endif;
 
 function tick_cross($value) {
@@ -32,13 +32,19 @@ $social_uri = [
 global $wpdb;
 
 // data queries gs_courses table - course details
-$gs_gsd = $wpdb->get_results("SELECT c.id, c.name, c.address, c.telephone, c.website, c.email, c.facebook, c.twitter, c.instagram, c.length, c.par, c.description, c.wkday_rnd, c.wkday_day, c.wkend_rnd, c.wkend_day, c.greenfee_note1, c.directions, c.course_lat, c.course_lng, c.special_offers, c.feature_switch, c.top_course, c.featured_course, c.img_logo, c.img_hdr, c.img_ftr, c.img_ad1, ct.type FROM gs_courses AS c INNER JOIN gs_course_types AS ct ON c.type = ct.id WHERE c.id = ".$golfCourseID."");
+$gs_gsd = $wpdb->get_results("SELECT c.id, c.name, c.address, c.telephone, c.website, c.email, c.facebook, c.twitter, c.instagram, c.length, c.par, c.description, c.wkday_rnd, c.wkday_day, c.wkend_rnd, c.wkend_day, c.greenfee_note1, c.directions, c.course_lat, c.course_lng, c.special_offers, c.feature_switch, c.top_course, c.featured_course, c.img_logo, c.img_hdr, c.img_ftr, c.img_ad1, c.video1, cr.region, ct.type FROM gs_courses AS c INNER JOIN gs_course_regions AS cr ON c.region = cr.id INNER JOIN gs_course_types AS ct ON c.type = ct.id WHERE c.id = ".$golfCourseID."");
 
 // data queries gs_courses table - feature and facilities
 $gs_gsff = $wpdb->get_results("SELECT id, trolly_hire, catering, club_hire, clubhouse, showers, changing_rooms, driving_range, proshop, putting_area, buggy_hire, tuition, conference_facilities, function_room, corporate_golf, society_golf, feature_note FROM gs_courses WHERE id = ".$golfCourseID."");
 
 // data queries gs_courses table - videos
 $gs_gsv = $wpdb->get_results("SELECT id, video1, video2, video3 FROM gs_courses WHERE id = ".$golfCourseID."");
+
+// set variables
+// if course logo not available use golf scotland icon
+$gs_icon240 = '2020/05/gs-icon240-e1590336869748.png';
+// google map api key
+$gs_mapkey = 'AIzaSyB1uKUoWEHyWBD9KbKg8sJsl2gF1137VT8';
 
 get_header();
 
@@ -171,11 +177,11 @@ table#gs-greenfees2 tr:nth-child(odd) {
 table#gs-greenfees2 tr:nth-child(even) {
 	background-color: #eee; /* lightgrey */ 
 }
-table#gs-greenfees2 th:nth-child(3), table#gs-greenfees2 th:nth-child(4),
-table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4) {
+table#gs-greenfees2 th:nth-child(3), table#gs-greenfees2 th:nth-child(4), table#gs-greenfees2 th:nth-child(5),
+table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4), table#gs-greenfees2 td:nth-child(5) {
 	text-align: right;
 }
-table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4) {
+table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4), table#gs-greenfees2 td:nth-child(5) {
 	font-weight: bold;
 	color:  #0065bd; /* blue */
 }
@@ -185,7 +191,7 @@ table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4) {
 }
 #gs-map {
 	border: 1px solid #0065bd; /* blue */
-	margin: 0;
+	margin:0;
 	padding: 0;
   height: 400px;
 	width: 100%;
@@ -203,7 +209,7 @@ table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4) {
 }
 .gs-featBox {
 	display: inline-block;
-	width: 320px;
+	max-width: 320px;
 }
 .gs-featItem {
 	display: inline-block;
@@ -213,12 +219,14 @@ table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4) {
 	display: inline-block;
 	text-align: center;
 }
-
+.gs-vid {
+	margin-bottom: 10px;
+}
 .gs-blue {
 color: #0065bd; /* blue */
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 480px) {
 	
 	#gs-wrapper, #gs-header h1 {
 		margin-left: 8px;
@@ -247,13 +255,18 @@ color: #0065bd; /* blue */
 	.gs-advert {
 		width: 100%;
 	}
+	.gs-vid {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 </style>
 <section id="gs-header">
 <?php if($gsd->img_logo != null) : ?>
 <img id="gs-logo" src="<?php echo $img_uri.$gsd->img_logo; ?>" alt="club logo" />
 <?php else : ?>
-<img id="gs-logo" src="<?php echo $img_uri; ?>2020/05/gs-icon240-e1590336869748.png" alt="GS logo" />
+<img id="gs-logo" src="<?php echo $img_uri.$gs_icon240; ?>" alt="GS logo" />
 <?php endif; ?>
 <h1><?php echo $gsd->name; ?></h1>
 </section><!-- end #gs-header -->
@@ -309,6 +322,8 @@ color: #0065bd; /* blue */
 		<div id="gs-directions">
 			<?php echo nl2br(html_entity_decode($gsd->directions)); ?>
 		</div><!-- end #gs-directions-->
+		
+		<!-- display google map -->
 		<div id="gs-map">
 			<noscript>
 				The dynamic location map is not being displayed because JavaScript is deactivated for this browser.
@@ -325,11 +340,33 @@ color: #0065bd; /* blue */
 				// this course location
 				var this_course = {lat: <?php echo $gsd->course_lat; ?>, lng: <?php echo $gsd->course_lng; ?>},
 				map = new google.maps.Map(document.getElementById('gs-map'), {center: this_course, zoom: 14});
+				
+				var infoString = '<div id="gs-mapInfo">'+
+      			'<h4><?php  echo $gsd->name; ?></h4>' +
+      			'<div id="gs-bodyInfo">'+
+      			'Par: <b class="gs-blue"><?php echo $gsd->par; ?></b><br />' +
+      			'Length: <b class="gs-blue"><?php echo number_format($gsd->length); ?></b> yrds<br />' +
+      			'Type: <b class="gs-blue"><?php echo $gsd->type; ?></b><br />' +
+      			'Region: <b class="gs-blue"><?php echo $gsd->region; ?></b>' +
+      			'</div>'+
+      			'</div>';
+
+				var infowindow = new google.maps.InfoWindow({
+    				content: infoString
+  				});
+
+				// golf scotland icon
+				// get icon image
+				var gs_icon = '<?php echo $img_uri.'2020/07/gs-icon40.png'; ?>';
+				// set icon
+				var golfscot = {icon: gs_icon};
+				
 				// The marker, positioned at this course
-				var marker = new google.maps.Marker({position: this_course, map: map});
+				var marker = new google.maps.Marker({position: this_course, icon: gs_icon, map: map});
+				marker.addListener('click', function() { infowindow.open(map, marker);});
 			}
 		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1uKUoWEHyWBD9KbKg8sJsl2gF1137VT8&language=en&region=GB&callback=initMap">
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $gs_mapkey; ?>&language=en&region=GB&callback=initMap">
 		</script>
 		<!-- end Google Maps API -->
 		
@@ -344,10 +381,10 @@ color: #0065bd; /* blue */
 	
 	if($gsd->special_offers != null) :
 ?>
-		<h3>Scecial Offers:</h3>
-		<div id="gs-scecialOffers">
+		<h3>Special Offers:</h3>
+		<div id="gs-specialOffers">
 <?php echo nl2br(html_entity_decode($gsd->special_offers)); ?>
-		</div><!-- end #gs-scecialOffers-->
+		</div><!-- end #gs-specialOffers-->
 <?php
 	endif;
 	
@@ -404,7 +441,7 @@ color: #0065bd; /* blue */
 		endforeach;
 	endif;
 
-	if ($gsvid->$video != null) :
+	if ($gsd->video1 != null) :
 ?>
 		<h2>Gallery:</h2>
 		<div id="gs-gallery">
@@ -414,12 +451,12 @@ color: #0065bd; /* blue */
 			for ($x=1; $x <= 3; $x++) :
 				$video = 'video'.$x;		
 				// set video image width and height
-				$v_width = 450;
-				$v_height = 253;
-				if (preg_match('/\b.youtube.\b/', $gsvid->$video)) :
+				$v_width = 425;
+				$v_height = 239;
+				if($gsvid->$video != null) :
 ?>
-				<iframe width="<?php echo $v_width; ?>" height="<?php echo $v_height; ?>" src="<?php echo $video_uri.$gsvid->$video; ?>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<?php 
+					<iframe class="gs-vid" width="<?php echo $v_width; ?>" height="<?php echo $v_height; ?>" src="<?php echo $video_uri.$gsvid->$video; ?>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<?php
 				endif;
 			endfor;
 		endforeach;

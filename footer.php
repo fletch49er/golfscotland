@@ -78,7 +78,7 @@
 						</div><!-- end #gs-pga -->
 						<div id="gs-img-tagline">OFFICIAL MEDIA SPONSORS</div>
 					</div><!-- end 'sponsor -->
-				</div><!-- end #sponsors -->	
+				</div><!-- end #sponsors -->
 	</div>
 	<?php endif; ?>
 
@@ -87,15 +87,15 @@
 			<div class="mh-footer-bottom <?php echo esc_attr( $myhome_footer->get_bottom_class() ); ?>">
 				<div class="mh-layout">
 					<?php echo wp_kses_post( $myhome_footer->get_copyrights() ); ?>
-				</div>
-				<?php include 'mda_vat.php'; ?>
+					<?php get_template_part( 'templates/mda_vat' ); ?>
+				</div>				
 			</div>
 			
 	<?php endif; ?>
 
 </footer>
 
-<?php include_once 'dbmNotice.php'; ?>
+<?php get_template_part( 'templates/dbmNotice' ); ?>
 
 <account id="myhome-account"></account>
 <save-search id="myhome-save-search"></save-search>
