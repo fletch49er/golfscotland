@@ -1,0 +1,48 @@
+#gs-sponsors {
+	position: relative;
+	width: 552px;
+	margin: 0px auto 16px auto;
+}
+.gs-sponsor {
+	display: inline-block;
+}
+#gs-pga img {
+	 width: 225px;
+	 height:125px;
+}
+#gs-pga {
+	padding: 0px 10px 0px 10px;
+}
+#gs-img-tagline {
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-align: center;
+	color: #0065bd; /* blue */
+}
+#gs-et img, #gs-ct img {
+	 width: 150px;
+	 height: 88px;
+}
+@media only screen and (max-width: 360px) {
+	#gs-sponsors {
+		width: 340px;
+	}
+	.gs-sponsor {
+		display: inline-block;
+	}
+	#gs-pga img {
+		width: 160px;
+		height: 90px;
+	}
+	#gs-pga {
+		padding: 0px 5px 0px 5px;
+	}
+	#gs-img-tagline {
+		font-size: 12px;
+	}
+	 #gs-et img, #gs-ct img {
+		width: 80px;
+		height: 47px;
+	}
+}

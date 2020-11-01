@@ -21,17 +21,20 @@ $ftr_img = [
 	'et' => [
 		'id' => 'gs-et',
 		'url' => 'https://www.europeantour.com/european-tour/', 
-		'img' => '2020/09/european-tour_open_graph.png'
+		'img' => '2020/09/european-tour_open_graph.png',
+		'height' => '100px'
 	],
 	'ept' => [
 		'id' => 'gs-pga',
 		'url' => 'http://www.europrotour.com/', 
-		'img' => '2020/05/pga-europro-tour-logo-e1590512511161.png'
+		'img' => '2020/05/pga-europro-tour-logo-e1590512511161.png',
+		'height' => '125px'
 	],
 	'ct' => [
 		'id' => 'gs-ct',
 		'url' => 'https://www.europeantour.com/challenge-tour/', 
-		'img' => '2020/09/challenge-tour_open_graph.png'
+		'img' => '2020/09/challenge-tour_open_graph.png',
+		'height' => '100px'
 	]
 ];
 ?>
