@@ -20,8 +20,8 @@
 													<?php if ( $myhome_footer->has_logo() ) : ?>
 															<div class="mh-footer__logo">
 																	<img
-																					src="<?php echo esc_url( $myhome_footer->get_logo() ); ?>"
-																					alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+																		src="<?php echo esc_url( $myhome_footer->get_logo() ); ?>"
+																		alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
 																	>
 															</div>
 													<?php endif; ?>
@@ -66,20 +66,13 @@
 											dynamic_sidebar( 'mh-sidebar-footer' );
 									endif;
 									?>
-									
+
 							</div>
 					</div>
 					<div id="gs-sponsors">
-						<div class="gs-sponsor">
-						<div id="gs-pga">
-							<a href="http://www.europrotour.com/">
-								<img src="https://www.golfscotland.net/wp-content/uploads/2020/05/pga-europro-tour-logo-e1590512511161.png" alt="pga logo" />
-							</a>
-						</div><!-- end #gs-pga -->
-						<div id="gs-img-tagline">OFFICIAL MEDIA SPONSORS</div>
-					</div><!-- end 'sponsor -->
-				</div><!-- end #sponsors -->
-	</div>
+						<?php get_template_part( 'templates/footer_imgs' ); ?>
+					</div><!-- end #sponsors -->
+			</div>
 	<?php endif; ?>
 
 	<?php if ( $myhome_footer->has_copyrights() ) : ?>
@@ -88,9 +81,9 @@
 				<div class="mh-layout">
 					<?php echo wp_kses_post( $myhome_footer->get_copyrights() ); ?>
 					<?php get_template_part( 'templates/mda_vat' ); ?>
-				</div>				
+				</div>
 			</div>
-			
+
 	<?php endif; ?>
 
 </footer>
