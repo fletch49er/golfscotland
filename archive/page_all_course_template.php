@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: All Courses Page-DRAFT
+ * Template Name: All Courses Page
  */
 // create alterative content layout using the following functions
 // +12 results and mobile
