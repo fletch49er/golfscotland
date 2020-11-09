@@ -66,11 +66,11 @@
 											dynamic_sidebar( 'mh-sidebar-footer' );
 									endif;
 									?>
-									
+
 							</div>
 					</div>
 					<div id="gs-sponsors">
-						<?php include_once('footer_imgs.php'); ?>
+						<?php get_template_part( 'templates/footer_imgs' ); ?>
 					</div><!-- end #sponsors -->
 			</div>
 	<?php endif; ?>
@@ -81,9 +81,9 @@
 				<div class="mh-layout">
 					<?php echo wp_kses_post( $myhome_footer->get_copyrights() ); ?>
 					<?php get_template_part( 'templates/mda_vat' ); ?>
-				</div>				
+				</div>
 			</div>
-			
+
 	<?php endif; ?>
 
 </footer>

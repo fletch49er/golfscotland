@@ -3,11 +3,11 @@
 *******************************************************************************
  * File:		footer_imgs.php
  * Purpose: Places partner images and links at the bottom of the page footer
- *						
+ *
  * Author:	Mark Fletcher
  * Date:		10.06.2020
- *  
- * Notes: 
+ *
+ * Notes:
  *
  * Revision:
  *
@@ -20,17 +20,17 @@ $gs_uri = 'https://www.golfscotland.net/wp-content/uploads/';
 $ftr_img = [
 	'et' => [
 		'id' => 'gs-et',
-		'url' => 'https://www.europeantour.com/european-tour/', 
+		'url' => 'https://www.europeantour.com/european-tour/',
 		'img' => '2020/09/european-tour_open_graph.png'
 	],
 	'ept' => [
 		'id' => 'gs-pga',
-		'url' => 'http://www.europrotour.com/', 
+		'url' => 'http://www.europrotour.com/',
 		'img' => '2020/05/pga-europro-tour-logo-e1590512511161.png'
 	],
 	'ct' => [
 		'id' => 'gs-ct',
-		'url' => 'https://www.europeantour.com/challenge-tour/', 
+		'url' => 'https://www.europeantour.com/challenge-tour/',
 		'img' => '2020/09/challenge-tour_open_graph.png'
 	]
 ];
