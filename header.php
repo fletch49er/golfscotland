@@ -1,25 +1,32 @@
+<?php
+//include php functions
+include 'php/gs_functions.php';
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ4F2M6G9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GBZ4F2M6G9');
-</script>
-
 	<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
-	
-	<!-- custom golf scotland stylesheets -->
-	<link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css"  />
 
 	<?php wp_head(); ?>
+
+  <!-- custom golf scotland stylesheets -->
+  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/gs-course_list.css" />
+  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ4F2M6G9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-GBZ4F2M6G9');
+  </script>
+
 </head>
 
 <body id="myhome-app" <?php body_class(); ?>>
