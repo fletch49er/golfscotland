@@ -14,7 +14,8 @@ include 'php/gs_functions.php';
 
   <!-- custom golf scotland stylesheets -->
   <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/gs-course_list.css" />
-  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/gs-footer.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/dbmNotice.css" />
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ4F2M6G9"></script>

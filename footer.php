@@ -73,6 +73,7 @@
 						<?php get_template_part( 'templates/footer_imgs' ); ?>
 					</div><!-- end #sponsors -->
 			</div>
+
 	<?php endif; ?>
 
 	<?php if ( $myhome_footer->has_copyrights() ) : ?>

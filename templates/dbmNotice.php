@@ -3,17 +3,18 @@
 *******************************************************************************
  * File:		dbmNotice.php
  * Purpose: Notice and link for designs by mark
- *						
+ *
  * Author:	Mark Fletcher
  * Date:		01.01.2013
- *  
- * Notes: 
+ *
+ * Notes:
  *
  * Revision:
  *		01.01.2013		1st issue.
  *		24.04.2018		php function 'dbmNotice()' added
  *		22.11.2018		dbmNotice() function re-written
  *									notification variables added
+ *		18.11.2020		css moved to an external file
  *
 *******************************************************************************
 */
@@ -46,23 +47,7 @@ function dbmNotice($designed, $hosted, $maintained) {
 	return $phrase;
 }
 ?>
-<style>
-#dbmNotice {
-  margin: 0 20px;
-  padding: 5px 0;
-  text-align: right;
-	font-size: 10pt;
-}
 
-#dbmNotice a:link, #dbmNotice a:visited {
-  text-decoration: underline;
-  color: #0065bd; /* blue */
-}
-
-#dbmNotice a:hover {
-  color: #b2cadf; /* lightblue */
-}
-</style>
 <div id="dbmNotice">
 	website <?php echo dbmNotice($design, $host, $maintain); ?>by <a href="http://www.designsbymark.co.uk" title="www.designsbymark.co.uk">designs by mark</a>
 </div><!-- end #dbmNotice -->
