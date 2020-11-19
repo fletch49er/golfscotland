@@ -2,7 +2,7 @@
 /**
  * Template Name: Course Profile Form
  */
- 
+
 //get_header();
 
 //get_template_part('templates/top-title');
@@ -28,7 +28,8 @@ $gs_regions = [
 $gs_types = [
 	'Links',
 	'Parkland',
-	'Desert'
+	'Desert',
+  'Moorland'
 ];
 $gs_required = '';
 $placeholder = [
@@ -56,7 +57,7 @@ $placeholder = [
 <?php if(!isset($_POST['submit'])) : ?>
 	<form id="gs-form" action="/data-form" method="post">
 		<div id="course-details">
-			<h2>COURSE DETAILS</h2>		
+			<h2>COURSE DETAILS</h2>
 			<p class="note">NOTE: <span class="red">*</span> Denotes a required field.</p>
 			<label class="detail-label1" for="name"><span class="red">*</span>Name:</label>
 			<input type="text" id="name" name="name" placeholder="<?php echo $placeholder['name']; ?>" size="85" maxlength="100" required /><br />
@@ -87,17 +88,17 @@ $placeholder = [
 		</div><!-- end #course-details -->
 
 		<div id="contact-details">
-			<h2>CONTACT DETAILS</h2>		
+			<h2>CONTACT DETAILS</h2>
 			<p class="note">NOTE: <span class="red">*</span> Denotes a required field.</p>
 			<h3 class="western">Direct:</h3>
 			<label class="detail-label1" for="telephone"><span class="red">*</span>Telephone:</label>
 			<input type="text" id="telephone" name="telephone" placeholder="<?php echo $placeholder['phone']; ?>" size="25" max-length="25" /><br />
-			<label class="detail-label1" for="website"><span class="red">*</span>Website:</label>	
+			<label class="detail-label1" for="website"><span class="red">*</span>Website:</label>
 			<input type="text" id="website" name="website" placeholder="<?php echo $placeholder['website']; ?>" size="85" max-length="75" /><br />
 			<label class="detail-label1" for="email"><span class="red">*</span>Email:</label>
 			<input type="email" id="email" name="email" placeholder="<?php echo $placeholder['email']; ?>" size="85" max-length="75" />
-			
-			<h3>Social Media:</h3>		
+
+			<h3>Social Media:</h3>
 			<p class="note">NOTE: Please leave blank if not applicable.</p>
 			<label class="detail-label1" for="facebook">Facebook:</label>
 			<input type="text" id="facebook" name="facebook" placeholder="<?php echo $placeholder['facebook']; ?>" size="85" max-length="75" /><br />
@@ -105,7 +106,7 @@ $placeholder = [
 			<input type="text" id="twitter" name="twitter" placeholder="<?php echo $placeholder['twitter']; ?>" size="85" max-length="75" /><br />
 			<label class="detail-label1" for="instagram">Instagram:</label>
 			<input type="text" id="instagram" name="instagram" placeholder="<?php echo $placeholder['instagram']; ?>" size="85" max-length="75" /><br />
-			
+
 			<input type="submit" name="submit" value="Submit Form" />
 		</div><!-- end #contact-details -->
 	</form><!-- end #gs-form -->
