@@ -5,30 +5,12 @@
  * Purpose:		Function to display DMA Media Limited VAT number
  * Author:		Mark Fletcher
  * Date:			19.06.2020
- * 
- * Input:
- * 
- * Output:		
- * 	VAT No. string
- * 
- * Notes:
  *
- * ==================================================================
- */
- 
-
-/*
- * ===================================================================
- * Function:	dma_vat_no()
- * Purpose:		Function to display DMA Media Limited VAT number
- * Author:		Mark Fletcher
- * Date:			19.06.2020
- * 
  * Input:
- * 
- * Output:		
+ *
+ * Output:
  * 	VAT No. string
- * 
+ *
  * Notes:
  *
  * ==================================================================
