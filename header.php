@@ -15,9 +15,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
-	
+
 	<!-- custom golf scotland stylesheets -->
-	<link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css"  />
+  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-course_list.css" />
+	<link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css" />
+  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/dbmNotice.css" />
 
 	<?php wp_head(); ?>
 </head>
