@@ -1,8 +1,11 @@
+<?php
+include_once('php/gs_data.php');
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ4F2M6G9"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo ANALYTIC_KEY; ?>"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -18,7 +21,7 @@
 
 	<!-- custom golf scotland stylesheets -->
   <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-course_list.css" />
-	<link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css" />
+  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css" />
   <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/dbmNotice.css" />
 
 	<?php wp_head(); ?>
@@ -222,9 +225,8 @@ if ( $myhome_sticky_menu == 1 ) { ?>
 							<div class="mh-navbar__header">
 								<?php if ( My_Home_Theme()->layout->has_logo() ) : ?>
 									<a href="<?php echo esc_url( home_url() ); ?>" class="mh-navbar__brand"
-									   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-										<img src="<?php echo esc_url( My_Home_Theme()->layout->get_logo() ); ?>"
-											 alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+									   title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">  <img src="<?php echo esc_url( My_Home_Theme()->layout->get_logo() ); ?>"
+                      alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">s
 									</a>
 								<?php else : ?>
 									<a href="<?php echo esc_url( home_url() ); ?>" class="mh-navbar__blog-name"
@@ -266,5 +268,6 @@ if ( $myhome_sticky_menu == 1 ) : ?>
 <div class="mh-sticky-menu-placeholder
 		<?php if ( My_Home_Theme()->layout->set_sticky_height() ) : ?>
 			mh-sticky-menu-placeholder--active
-		<?php endif; ?>"></div>
+		<?php endif; ?>">
+</div>
 <?php endif; ?>

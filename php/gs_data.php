@@ -27,6 +27,12 @@ define ('WEBSITE', 'https://www.golfscotland.net');
 define ('EMAIL', 'info@golfscotland.net');
 define ('VATNO', '349&nbsp;9373&nbsp;46');
 
+//Google Keys
+// Analytics Key
+define ('ANALYTIC_KEY', 'G-GBZ4F2M6G9');
+// Google Maps API Key
+define ('MAP_KEY', 'AIzaSyB1uKUoWEHyWBD9KbKg8sJsl2gF1137VT8');
+
 // navbar seperator
 define('SEPERATOR', '|');
 
