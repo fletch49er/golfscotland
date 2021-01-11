@@ -6,32 +6,27 @@ h1, h2, h3, h4 {
 }
 .gs-link a:link, .gs-link a:visited {
 	text-decoration: none;
-
 	color: #0065bd; /* blue */
 }
 .gs-link a:hover {
 	color: #000; /* black */;
 }
-
+#gs-search-form-container {
+	display: inline-block;
+	width: 100%;
+}
 #gs-search-form {
 	width: 75%;
 	margin-right: auto;
 	margin-bottom: 40px;
 	margin-left: auto;
 }
-#gs-search-form-container {
-	display: inline-block;
-
-	width: 100%;
-}
 .gs-query-box {
 	display: inline-block;
-
 	width: 37%;
 }
 .gs-submit-box {
 	display: inline-block;
-
 	width: 24%;
 }
 #gs-search-button {
@@ -45,11 +40,8 @@ h1, h2, h3, h4 {
 table#gs-allCourse {
 	width: 100%;
 }
-table#gs-allCourse12 {
-	width: 25%;
-}
-table#gs-allCourse, table#gs-allCourse > th, table#gs-allCourse > td {
-	border: none;
+table, th, td {
+	border: none!important;
 }
 table#gs-allCourse tr:nth-child(odd) {
 	background-color: #eee; /* lightgrey */
@@ -63,7 +55,6 @@ table#gs-allCourse th {
 }
 th {
 	height: 50px;
-
 	font-size: 14pt;
 }
 td {
@@ -78,8 +69,7 @@ td.gs-img {
 
 .gs-imgLogo {
 	height: 50px;
-
-	border: none;
+	border: none!important;
 }
 .gs-blue {
 	color: #0065bd; /* blue */
@@ -107,18 +97,16 @@ td.gs-img {
 	h2 {
 		font-size: 20pt;
 	}
-
 	.gs-query-box, .gs-submit-box {
 		display: block;
-
 		width: 100%;
 	}
 	#gs-search-button {
 		margin-top: 5px;
 	}
-
 	th {
-		height: 50px; font-size: 8pt;
+		height: 50px;
+		font-size: 8pt;
 	}
 	td {
 		font-size: 8pt;
