@@ -3,20 +3,14 @@
 	width: 520px;
 	margin: 0px auto 16px auto;
 }
-.gs-sponsor {
-	display: inline-block;
-}
 #gs-pga-logo {
 	display: block;
-	width: 50%;
+	width: 35%;
 	margin: 0px auto;
 }
 #gs-pga img {
 	display: block;
 	width: 100%;
-}
-#gs-pga {
-	padding: 0px 10px 0px 10px;
 }
 #gs-img-tagline {
 	margin-bottom: 10px;
@@ -25,6 +19,9 @@
 	letter-spacing: 3px;
 	text-align: center;
 	color: #0065bd; /* blue */
+}
+.gs-sponsor {
+	display: inline-block;
 }
 #gs-et img, #gs-ct img, #gs-lt img {
 	 width: 120px;
@@ -37,22 +34,20 @@
 	#gs-sponsors {
 		width: 340px;
 	}
-	.gs-sponsor {
-		display: inline-block;
-	}
-	#gs-pga img {
-		width: 160px;
-	}
-	#gs-pga {
-		padding: 0px 5px 0px 5px;
+	#gs-pga-logo {
+		display: block;
+		width: 40%;
 	}
 	#gs-img-tagline {
 		font-size: 12px;
+	}
+	.gs-sponsor {
+		display: inline-block;
 	}
 	#gs-et img, #gs-ct img, #gs-lt img {
 		width: 70px;
 	}
 	#gs-et img, #gs-ct img, #gs-lt img, #gs-rc img {
-		height: 42px;
+		height: 40px;
 	}
 }

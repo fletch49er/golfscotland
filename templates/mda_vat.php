@@ -11,12 +11,11 @@
  *
  * Revision:
  *	04.11.2020	VAT No. set as variable
+ *	23.11.2020	VAT No. set as constant in external file gs_data.php
  *
 *******************************************************************************
 */
-//VAT No.
-$vatNo = '349&nbsp;9373&nbsp;46';
 ?>
 <div id="vat-num">
-	<?php echo 'VAT Reg No.: '.$vatNo.''.PHP_EOL; ?>
+	<?php echo 'VAT Reg No.: '.VATNO; ?>
 </div><!-- end #vat-num -->

@@ -43,15 +43,13 @@ $gs_gsv = $wpdb->get_results("SELECT id, video1, video2, video3 FROM gs_courses 
 // set variables
 // if course logo not available use golf scotland icon
 $gs_icon240 = '2020/05/gs-icon240-e1590336869748.png';
-// google map api key
-$gs_mapkey = 'AIzaSyB1uKUoWEHyWBD9KbKg8sJsl2gF1137VT8';
 
 get_header();
 
 get_template_part( 'templates/top-title' );
 ?>
 
-<!--<div class="mh-layout mh-top-title-offset"> 
+<!--<div class="mh-layout mh-top-title-offset">
 
 <?php /*
 	while ( have_posts() ) : the_post();
@@ -66,7 +64,7 @@ get_template_part( 'templates/top-title' );
 <?php foreach ($gs_gsd as $gsd) : ?>
 <style>
 #gs-wrapper {
-	margin: 0px 32px 0px 32px; 
+	margin: 0px 32px 0px 32px;
 }
 h1, h2, h3, h4 {
 	color: #0065bd; /* blue */
@@ -74,7 +72,7 @@ h1, h2, h3, h4 {
 h2 {
 	font-weight: bold;
 }
-#gs-content a:link, #gs-content a:visited, 
+#gs-content a:link, #gs-content a:visited,
 #gs-contactDetails a:link, #gs-contactDetails a:visited {
 	text-decoration: underline;
 	color: #0065bd; /* blue */
@@ -115,7 +113,7 @@ h2 {
 <?php else : ?>
 	background-image: url('<?php echo $img_uri.'2020/05/golf_course1.jpg'; ?>');
 <?php endif; ?>
-	background-size: cover;	
+	background-size: cover;
 	background-position: left center;
 	background-repeat: none;
 	padding: 20px 32px;
@@ -172,10 +170,10 @@ table#gs-greenfees2 td {
 	border: none;
 }
 table#gs-greenfees2 tr:nth-child(odd) {
-	background-color: #fff; /* white */ 
+	background-color: #fff; /* white */
 }
 table#gs-greenfees2 tr:nth-child(even) {
-	background-color: #eee; /* lightgrey */ 
+	background-color: #eee; /* lightgrey */
 }
 table#gs-greenfees2 th:nth-child(3), table#gs-greenfees2 th:nth-child(4), table#gs-greenfees2 th:nth-child(5),
 table#gs-greenfees2 td:nth-child(3), table#gs-greenfees2 td:nth-child(4), table#gs-greenfees2 td:nth-child(5) {
@@ -227,7 +225,7 @@ color: #0065bd; /* blue */
 }
 
 @media only screen and (max-width: 480px) {
-	
+
 	#gs-wrapper, #gs-header h1 {
 		margin-left: 8px;
 		margin-right: 8px;
@@ -280,12 +278,12 @@ color: #0065bd; /* blue */
 			<b>Length:</b> <?php echo number_format($gsd->length); ?> yrds&nbsp;|&nbsp;
 			<b>Par:</b> <?php echo $gsd->par; ?>
 		</div><!-- end #gs-stats-->
-		
+
 		<h3>Description:</h3>
 		<div id="gs-description">
 			<p><?php echo nl2br(html_entity_decode($gsd->description)); ?></p>
 		</div><!-- end #gs-description-->
-		
+
 		<h3>Green Fees:</h3>
 		<div id="gs-greenFees">
 <?php if(($gsd->wkday_rnd != null) && ($gsd->wkday_day != null) && ($gsd->wkend_rnd != null) && ($gsd->wkend_day != null)) : ?>
@@ -303,7 +301,7 @@ color: #0065bd; /* blue */
 				<span  class="gs-ticket">Day Ticket:</span>
 				<b class="gs-blue">&pound;<?php echo $gsd->wkend_day; ?></b>
 			</div><!-- end #gs-weekend -->
-<?php 
+<?php
 	elseif($gsd->greenfee_note1 != null) :
 		$table_rows = explode("\r", $gsd->greenfee_note1);
 		$fees_table = '<table id="gs-greenfees2">'.PHP_EOL;
@@ -314,22 +312,22 @@ color: #0065bd; /* blue */
 		endfor;
 		$fees_table .= '</table>'.PHP_EOL;
 		echo $fees_table;
-?>		
+?>
 <?php endif; ?>
 		</div><!-- end #gs-greenFees -->
-		
+
 		<h3>Directions:</h3>
 		<div id="gs-directions">
 			<?php echo nl2br(html_entity_decode($gsd->directions)); ?>
 		</div><!-- end #gs-directions-->
-		
+
 		<!-- display google map -->
 		<div id="gs-map">
 			<noscript>
 				The dynamic location map is not being displayed because JavaScript is deactivated for this browser.
 			</noscript>
 		</div><!-- end #gs-map-->
-		
+
 		<!-- Google Maps API -->
 		<script>
 			// initialise variables
@@ -340,7 +338,7 @@ color: #0065bd; /* blue */
 				// this course location
 				var this_course = {lat: <?php echo $gsd->course_lat; ?>, lng: <?php echo $gsd->course_lng; ?>},
 				map = new google.maps.Map(document.getElementById('gs-map'), {center: this_course, zoom: 14});
-				
+
 				var infoString = '<div id="gs-mapInfo">'+
       			'<h4><?php  echo $gsd->name; ?></h4>' +
       			'<div id="gs-bodyInfo">'+
@@ -360,25 +358,25 @@ color: #0065bd; /* blue */
 				var gs_icon = '<?php echo $img_uri.'2020/07/gs-icon40.png'; ?>';
 				// set icon
 				var golfscot = {icon: gs_icon};
-				
+
 				// The marker, positioned at this course
 				var marker = new google.maps.Marker({position: this_course, icon: gs_icon, map: map});
 				marker.addListener('click', function() { infowindow.open(map, marker);});
 			}
 		</script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $gs_mapkey; ?>&language=en&region=GB&callback=initMap">
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo MAP_KEY; ?> &language=en &region=GB &callback=initMap">
 		</script>
 		<!-- end Google Maps API -->
-		
+
 <?php if($gsd->img_ad1 != null) : ?>
 		<div id="gs-advertBox">
 			<a href="<?php  echo $gsd->website; ?>">
 				<img class="gs-advert" src="<?php echo $img_uri.$gsd->img_ad1; ?>" alt="current advert No.1" />
 			</a>
 		</div><!-- end .gs-advertBox -->
-<?php 
-	endif; 
-	
+<?php
+	endif;
+
 	if($gsd->special_offers != null) :
 ?>
 		<h3>Special Offers:</h3>
@@ -387,9 +385,9 @@ color: #0065bd; /* blue */
 		</div><!-- end #gs-specialOffers-->
 <?php
 	endif;
-	
+
 	if($gsd->feature_switch == 1) :
-		foreach ($gs_gsff as $gsff) : ?>	
+		foreach ($gs_gsff as $gsff) : ?>
 		<h3>Golf Course Features and Facilities:</h3>
 		<div id="gs-features">
 			<div class="gs-featBox">
@@ -404,7 +402,7 @@ color: #0065bd; /* blue */
 				<div class="gs-featItem"><b>Showers:</b></div>
 				<div class="gs-featIcon"><?php echo tick_cross($gsff->showers); ?></div>
 			</div><!-- end .gs-featBox-->
-			
+
 			<div class="gs-featBox">
 				<div class="gs-featItem"><b>Changing Rooms:</b></div>
 				<div class="gs-featIcon"><?php echo tick_cross($gsff->changing_rooms); ?></div>
@@ -417,7 +415,7 @@ color: #0065bd; /* blue */
 				<div class="gs-featItem"><b>Buggy Hire:</b></div>
 				<div class="gs-featIcon"><?php echo tick_cross($gsff->buggy_hire); ?></div>
 			</div><!-- end .gs-featBox-->
-			
+
 			<div class="gs-featBox">
 				<div class="gs-featItem"><b>Tuition Available:</b></div>
 				<div class="gs-featIcon"><?php echo tick_cross($gsff->tuition); ?></div>
@@ -430,7 +428,7 @@ color: #0065bd; /* blue */
 				<div class="gs-featItem"><b>Society Golf:</b></div>
 				<div class="gs-featIcon"><?php echo tick_cross($gsff->society_golf); ?></div>
 			</div><!-- end .gs-featBox -->
-		</div><!-- end #gs-featuress -->
+		</div><!-- end #gs-features -->
 <?php if ($gsff->feature_note != null) : ?>
 		<div id="gs-featNotes">
 			<h3>Additional Notes on Features:</h3>
@@ -449,21 +447,21 @@ color: #0065bd; /* blue */
 <?php
 		foreach ($gs_gsv as $gsvid) :
 			for ($x=1; $x <= 3; $x++) :
-				$video = 'video'.$x;		
+				$video = 'video'.$x;
 				// set video image width and height
 				$v_width = 425;
 				$v_height = 239;
 				if($gsvid->$video != null) :
 ?>
-					<iframe class="gs-vid" width="<?php echo $v_width; ?>" height="<?php echo $v_height; ?>" src="<?php echo $video_uri.$gsvid->$video; ?>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe class="gs-vid" width="<?php echo $v_width; ?>" height="<?php echo $v_height; ?>" src="<?php echo $video_uri.$gsvid->$video; ?>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <?php
 				endif;
 			endfor;
 		endforeach;
-	endif;
 ?>
 			</div><!-- end #gs-video -->
 		</div><!-- end #gs-gallery -->
+<?php	endif; ?>
 	</section><!-- end #gs-content -->
 </div><!-- end #gs-wrapper -->
 
@@ -478,7 +476,7 @@ color: #0065bd; /* blue */
 			<b class="gs-contact">Email:</b>
 			<a href="mailto:<?php echo $gsd->email; ?>"><?php echo $gsd->email; ?></a>
 		</div><!-- end #gs-contactItems -->
-		
+
 		<div id="gs-socialMedia">
 <?php if ($gsd->facebook != null) : ?>
 			<div class="gs-social">
@@ -489,9 +487,9 @@ color: #0065bd; /* blue */
 				</span>
 				</a>
 			</div>
-<?php 
+<?php
 	endif;
-	if ($gsd->twitter != null) : 
+	if ($gsd->twitter != null) :
 ?>
 			<div class="gs-social">
 				<a href="<?php echo $social_uri[1].$gsd->twitter; ?>">
@@ -501,9 +499,9 @@ color: #0065bd; /* blue */
 				</span>
 				</a>
 			</div>
-<?php 
+<?php
 	endif;
-	if ($gsd->instagram != null) : 
+	if ($gsd->instagram != null) :
 ?>
 			<div class="gs-social">
 				<a href="<?php echo $social_uri[2].$gsd->instagram; ?>">
@@ -513,8 +511,8 @@ color: #0065bd; /* blue */
 				</span>
 				</a>
 			</div>
-<?php 
-	endif; 
+<?php
+	endif;
 	if ($gsd->youtube != null) :
 ?>
 			<div class="gs-social">
@@ -528,7 +526,7 @@ color: #0065bd; /* blue */
 <?php endif; ?>
 		</div><!-- end #gs-socialMedia -->
 	</div><!-- end #gs-contactDetails -->
-	
+
 	<div id="gs-address">
 	<?php echo $gsd->address; ?>
 	</div><!-- end #gs-address -->
