@@ -1,5 +1,8 @@
 <?php
+/* include external data file */
 include_once('php/gs_data.php');
+/* include external gs_functions file */
+include_once('php/gs_functions.php');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -8,10 +11,11 @@ include_once('php/gs_data.php');
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo ANALYTIC_KEY; ?>"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
-
-  gtag('config', 'G-GBZ4F2M6G9');
+  gtag('config', <?php echo ANALYTIC_KEY; ?>);
 </script>
 
 	<meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>">
@@ -20,9 +24,9 @@ include_once('php/gs_data.php');
 	<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
 
 	<!-- custom golf scotland stylesheets -->
-  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-course_list.css" />
-  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/gs-footer.css" />
-  <link rel="stylesheet" type="text/css" href="https://www.golfscotland.net/wp-content/themes/myhome/css/dbmNotice.css" />
+  <link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/gs-course_list.css" />
+  <link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/gs-footer.css" />
+  <link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/dbmNotice.css" />
 
 	<?php wp_head(); ?>
 </head>
@@ -269,5 +273,6 @@ if ( $myhome_sticky_menu == 1 ) : ?>
 <div class="mh-sticky-menu-placeholder
 		<?php if ( My_Home_Theme()->layout->set_sticky_height() ) : ?>
 			mh-sticky-menu-placeholder--active
-		<?php endif; ?>"></div>
+		<?php endif; ?>">
+</div>
 <?php endif; ?>

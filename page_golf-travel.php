@@ -3,7 +3,7 @@
  * Template Name: Golf Travel Page
  */
 
-get_header(gt);
+get_header('gt');
 
 get_template_part( 'templates/top-title' ); ?>
 
