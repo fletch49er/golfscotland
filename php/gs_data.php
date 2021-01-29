@@ -17,8 +17,8 @@
 */
 // define constants
 // company details
-define ('COMPANY', 'MDA Media Ltd');
-define ('OWNER', 'MDA Media Ltd');
+define ('COMPANY', 'MDA Media Ltd.');
+define ('OWNER', 'MDA Media Ltd.');
 define ('COMPANYNO', 'SC663153');
 define ('ADDRESS', 'Suite 3 & 4 Orbital House 3 Redwood Crescent, East&nbsp;Kilbride G74 5PA, Scotland');
 define ('TELEPHONE','+44&nbsp;7423&nbsp;608374');
@@ -26,6 +26,7 @@ define ('NAME', 'Golf Scotland');
 define ('WEBSITE', 'https://www.golfscotland.net');
 define ('EMAIL', 'info@golfscotland.net');
 define ('VATNO', '349&nbsp;9373&nbsp;46');
+define ('PUB_DATE', '01/07/2020');
 
 //Google Keys
 // Analytics Key
@@ -35,6 +36,15 @@ define ('MAP_KEY', 'AIzaSyB1uKUoWEHyWBD9KbKg8sJsl2gF1137VT8');
 
 // navbar seperator
 define('SEPERATOR', '|');
+
+//policies t&cs data array
+$ftr_navbar_data = [
+	'site map' => 'sitemap',
+	'terms &amp; conditions' => 'terms-conditions',
+	'privacy policy' => 'privacy-policy',
+	'disclaimer' => 'disclaimer',
+	'copyright' => 'copyright'
+];
 
 // array of golf course types
 $gs_types = [

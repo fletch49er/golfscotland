@@ -1,3 +1,13 @@
+<?php
+//policies t&cs data array
+$ftr_navbar_data = [
+	'site map' => 'sitemap',
+	'terms &amp; conditions' => 'terms-conditions',
+	'privacy policy' => 'privacy-policy',
+	'disclaimer' => 'disclaimer',
+	'copyright' => 'copyright'
+];
+?>
 <?php $myhome_footer = new My_Home_Footer(); ?>
 
 <footer id="footer"
@@ -78,6 +88,9 @@
 	<?php if ( $myhome_footer->has_copyrights() ) : ?>
 
 			<div class="mh-footer-bottom <?php echo esc_attr( $myhome_footer->get_bottom_class() ); ?>">
+				<div id="gs-ftr-navbar" class="mh-layout">
+					<?php create_navbar($ftr_navbar_data, 0, SEPERATOR); ?>
+				</div><!-- end #gs-ftr-navbar -->
 				<div class="mh-layout">
 					<?php echo wp_kses_post( $myhome_footer->get_copyrights() ); ?>
 					<?php get_template_part( 'templates/mda_vat' ); ?>

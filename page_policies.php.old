@@ -1,0 +1,55 @@
+<?php
+/**
+ * Template Name: Policies Page
+ */
+// array of policy pages
+$policyPages = [
+	'termsConditions' => 'terms &amp; conditions',
+	'privacyPolicy' => 'privacy policy',
+	'disclaimer' => 'disclaimer',
+	'copyright' => 'copyright'
+];
+
+$_GET = [
+	'policy' => 'privacyPolicy'
+];
+
+$data_url = get_template_directory_uri().'/data/';
+
+// function to display relevant policy document
+// add navigation as option
+function displayPolicy($policy, $url) {
+
+}
+
+get_header();
+
+get_template_part( 'templates/top-title' );
+?>
+
+<div id="gs-main">
+	<div id="gs-sub_main">
+		<h2><?php echo ucwords($policyPages[''.$_GET['policy'].'']); ?></h2>
+		<div id="policy">
+
+<?php
+// check for existance of a variable
+if(empty($_GET['policy'])) {
+	echo '<h1>ERROR: No document found. Click <a href="https://www.golfscotland.net/" title="home page">home</a> to return.</h1>';
+} else {
+	// retrieve details sent along with link and set as $policy variable
+	$policy = $_GET['policy'];
+	if(empty($policy)) {
+		echo '<h1>ERROR: No document found. Click <a href="https://www.golfscotland.net/" title="home page">home</a> to return.</h1>';
+	} else {
+		// display policy
+		$file = $data_url.$policy.'.php';
+		include_once(''.$file.'');
+	}
+}
+?>
+</div><!-- end #policy -->
+</div><!-- end #gs-sub_main -->
+</div><!-- end #gs-main -->
+
+<?php get_footer(); ?>

@@ -1,6 +1,36 @@
 <?php
 /*
  * ===================================================================
+ * Function:	create_navbar()
+ * Purpose:		function to create navbars
+ * Author:		Mark Fletcher
+ * Date:			19.04.2019
+ *
+ * Input:
+ * $data	- a selected data array
+ * $count -
+ * $separator	- e.g. '|', ' ', ':'
+ *
+ * Output:
+ * 	footer navbar string
+ *
+ * Notes:
+ *
+ * ==================================================================
+*/
+function create_navbar($data, $count, $seperator) {
+	foreach($data as $page => $link) {
+		$count ++;
+		if($count < count($data)) {
+			echo '<a href="'.$link.'">'.strtoupper($page).'</a>&nbsp;&nbsp;<span class="seperator">'.$seperator.'</span>&nbsp;&nbsp;'.PHP_EOL;
+		} else {
+			echo '<a href="'.$link.'">'.strtoupper($page).'</a>'.PHP_EOL;
+		}
+	}
+}
+
+/*
+ * ===================================================================
  * Function:	plus25()
  * Purpose:		Function to display 25+ results of database search result
  * Author:		Mark Fletcher
