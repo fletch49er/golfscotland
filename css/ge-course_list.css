@@ -43,6 +43,7 @@ h1, h2, h3, h4 {
 	color: #fff;
 	border: 1px solid #d40000; /* red */
 	background-color: #d40000; /* red */
+  cursor: pointer;
 }
 
 table#ge-allCourse {

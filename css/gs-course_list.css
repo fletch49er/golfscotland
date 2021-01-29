@@ -43,6 +43,7 @@ h1, h2, h3, h4 {
 	color: #fff;
 	border: 1px solid #0065bd; /* blue */
 	background-color: #0065bd; /* blue */
+  cursor: pointer;
 }
 
 table#gs-allCourse {
