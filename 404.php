@@ -4,6 +4,7 @@ get_header();
 ?>
     <div class="mh-404">
         <div class="mh-404__content">
+          <img src="https://www.golfscotland.net/wp-content/uploads/2021/01/404_img.png" alt="404 image" />
             <?php if ( class_exists( 'ReduxFramework' ) ) : ?>
                 <?php if ( My_Home_Theme()->layout->has_404_heading() ) : ?>
                     <h1 class="mh-404__title">
