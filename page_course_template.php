@@ -32,7 +32,7 @@ $social_uri = [
 global $wpdb;
 
 // data queries gs_courses table - course details
-$gs_gsd = $wpdb->get_results("SELECT c.id, c.name, c.address, c.telephone, c.website, c.email, c.facebook, c.twitter, c.instagram, c.length, c.par, c.description, c.wkday_rnd, c.wkday_day, c.wkend_rnd, c.wkend_day, c.greenfee_note1, c.directions, c.course_lat, c.course_lng, c.special_offers, c.feature_switch, c.top_course, c.featured_course, c.img_logo, c.img_hdr, c.img_ftr, c.img_ad1, c.video1, cr.region, ct.type FROM gs_courses AS c INNER JOIN gs_course_regions AS cr ON c.region = cr.id INNER JOIN gs_course_types AS ct ON c.type = ct.id WHERE c.id = ".$golfCourseID."");
+$gs_gsd = $wpdb->get_results("SELECT c.id, c.name, c.address, c.telephone, c.website, c.email, c.facebook, c.twitter, c.instagram, c.youtube, c.length, c.par, c.description, c.wkday_rnd, c.wkday_day, c.wkend_rnd, c.wkend_day, c.greenfee_note1, c.directions, c.course_lat, c.course_lng, c.special_offers, c.feature_switch, c.top_course, c.featured_course, c.img_logo, c.img_hdr, c.img_ftr, c.img_ad1, c.video1, cr.region, ct.type FROM gs_courses AS c INNER JOIN gs_course_regions AS cr ON c.region = cr.id INNER JOIN gs_course_types AS ct ON c.type = ct.id WHERE c.id = ".$golfCourseID."");
 
 // data queries gs_courses table - feature and facilities
 $gs_gsff = $wpdb->get_results("SELECT id, trolly_hire, catering, club_hire, clubhouse, showers, changing_rooms, driving_range, proshop, putting_area, buggy_hire, tuition, conference_facilities, function_room, corporate_golf, society_golf, feature_note FROM gs_courses WHERE id = ".$golfCourseID."");
@@ -467,8 +467,8 @@ color: #0065bd; /* blue */
 
 <section id="gs-footer">
 	<div id="gs-contactDetails" class="clearfix">
+		<h5>Ways to contact the golf club directly:</h5>
 		<div id="gs-contactItems">
-			<h5>Ways to contact the golf club directly:</h5>
 			<b class="gs-contact">Telephone:</b>
 			<a href="tel:<?php echo $gsd->telephone; ?>"><?php echo $gsd->telephone; ?></a><br />
 			<b class="gs-contact">Website:</b>

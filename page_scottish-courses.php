@@ -2,77 +2,6 @@
 /**
  * Template Name: Scottish Courses Page
  */
-// display alterative content layout using the following functions
-// +12 results and mobile
-function plus12 ($gs_gsdsr, $url, $img_path) {
-	echo <<<EOT
-		<table id="gs-allCourse">
-			<thead>
-				<tr>
-					<th colspan="2">COURSE</th>
-					<th class="gs-switch">REGION</th>
-					<th>TYPE</th>
-					<th>YRDS</th>
-					<th class="center">PAR</th>
-				</tr>
-			</thead>
-			<tbody>
-EOT;
-	foreach ($gs_gsdsr as $gsdsr) :
-		$format_yrds = number_format($gsdsr->length) ;
-		echo <<<EOT
-				<tr>
-					<td class="gs-link gs-img center">
-						<a href="{$url}?courseID={$gsdsr->id}">
-EOT;
-		if($gsdsr->img_logo != null ) :
-				echo '<img class="gs-imgLogo" src="'.$img_path.$gsdsr->img_logo.'" alt="course logo" />'.PHP_EOL;
-		else :
-				echo '<img class="gs-imgLogo" src="'.$img_path.'2020/05/gs-icon240-e1590336869748.png" alt="course logo" />'.PHP_EOL;
-		endif;
-		echo <<<EOT
-						</a>
-					</td>
-					<td class="gs-link"><a href="{$url}?courseID={$gsdsr->id}">{$gsdsr->name}</a></td>
-					<td class="gs-switch">{$gsdsr->region}</td>
-					<td>{$gsdsr->type}</td>
-					<td>{$format_yrds}</td>
-					<td class="center">{$gsdsr->par}</td>
-				</tr>
-EOT;
-	endforeach;
-	echo <<<EOT
-			</tbody>
-		</table>
-EOT;
-}
-
-//12 results
-function less_than12($gs_gsdsr, $url, $img_path) {
-	echo <<<EOT
-		<table id="gs-allCourse12">
-			<tbody>
-EOT;
-	foreach ($gs_gsdsr as $gsdsr) :
-		echo <<<EOT
-				<tr><td class="gs-link gs-img"><a href="{$url}?courseID=<{$gsdsr->id}">
-					<img class="gs-imgLogo" src="{$img_path}{$gsdsr->img_logo}" alt="course logo" /></a></td></tr>
-				<tr><td class="gs-link"><a href="{$url}?courseID={$gsdsr->id}">{$gsdsr->name}</a></td></tr>
-				<tr><td class="gs-switch">{$gsdsr->region}</td></tr>
-				<tr><td>{$gsdsr->type}</td></tr>
-				<tr><td>{number_format($gsdsr->length)} yrds</td></tr>
-				<tr><td class="center">{$gsdsr->par}</td></tr>
-EOT;
-	endforeach;
-	echo <<<EOT
-			</tbody>
-		</table>
-EOT;
-}
-
-// set data query gs_courses table - course details
-//$gs_query = 'SELECT c.id, c.name, c.address, cr.region, ct.type, c.length, c.par, c.description, c.wkday_rnd, c.wkday_day, c.wkend_rnd, c.wkend_day, c.special_offers, c.img_logo FROM gs_courses AS c INNER JOIN gs_course_types AS ct ON c.type = ct.id INNER JOIN gs_course_regions AS cr ON c.region = cr.id';
-
 // set data query gs_courses table - course details
 $gs_query = 'SELECT c.id, c.name, cr.region, ct.type, c.length, c.par, c.top_course, c.img_logo FROM gs_courses AS c INNER JOIN gs_course_types AS ct ON c.type = ct.id INNER JOIN gs_course_regions AS cr ON c.region = cr.id';
 
@@ -82,7 +11,7 @@ $type_query = 'SELECT id, type FROM gs_course_types';
 
 // if $_GET does not exist
 if(!isset($_GET['region'])) :
-	$_GET = ['region' => '', 'type' => '', 'top_course' => 1];
+	$_GET = ['region' => '', 'type' => '', 'top_course' => true];
 	$gs_header = "Top Ten Courses:";
 else :
 	$gs_header = "List of Courses Found:";
@@ -109,7 +38,7 @@ endif;
 		}
 	endforeach;
 
-	$gs_query .= ' AND c.switch = false ORDER BY ';
+	$gs_query .= ' AND c.switch = true ORDER BY ';
 	// group by region order name
 	if($_GET['region'] == null) {
 		$gs_query .= 'region, ';
@@ -168,7 +97,7 @@ get_template_part( 'templates/top-title' );
 	if((count($gs_gsdsr)) == 0) {
 		echo '<p>Sorry no course of that type found in this region.</p>';
 	} else /*if(count($gs_gsdsr) < 25)*/ {
-		plus12($gs_gsdsr, $url, $img_path);
+		plus25($gs_gsdsr, $url, $img_path);
 	}
 ?>
 	</section><!-- end #gs-content -->
