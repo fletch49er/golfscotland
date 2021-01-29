@@ -11,7 +11,7 @@ include_once ('php/gs_data.php');
 $gs_required = '';
 ?>
 <!-- custom golf scotland stylesheets -->
-	<link rel="stylesheet" type="text/css" href="css/data_form.css"  />
+<link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/data_form.css" />
 
 <div id="wrapper">
 	<div id="header">
@@ -20,7 +20,7 @@ $gs_required = '';
 
 	<h1>COURSE PROFILE FORM</h1>
 <?php if(!isset($_POST['submit'])) : ?>
-	<form id="gs-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<form id="gs-form" method="post" action="https://www.golfscotland.net/data-form/">
 		<div id="course-details">
 			<h2>COURSE DETAILS</h2>
 			<p class="note">NOTE: <span class="red">*</span> Denotes a required field.</p>
@@ -212,8 +212,8 @@ else :
 			echo 'Thank you for your enquiry.'.PHP_EOL;
 		}	else {
 			echo 'ERROR: Mail delivery error!'.PHP_EOL;
-		} // end if 'mail'*/
-	} // end if $valid
+		} // end if 'mail'
+	} // end if $valid*/
 ?>
 
 <?php endif; ?>
