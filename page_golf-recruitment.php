@@ -1,11 +1,11 @@
 <?php
 /**
- * Template Name: PGA EPT News Page
+ * Template Name: Golf Recruitment Page
  */
 
-get_header();
+get_header('gr');
 
-get_template_part( 'templates/pga-top-title' ); ?>
+get_template_part( 'templates/top-title' ); ?>
 
 <div class="mh-layout mh-top-title-offset">
 
@@ -24,7 +24,7 @@ get_template_part( 'templates/pga-top-title' ); ?>
     </div>
 
     <aside class="mh-layout__sidebar-right">
-        <?php get_template_part( 'templates/sidebar-v2' ); ?>
+        <?php get_template_part( 'templates/gr-sidebar' ); ?>
     </aside>
 
 </div>

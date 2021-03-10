@@ -51,5 +51,27 @@ function my_register_sidebars() {
             'after_title'   => '</h3>',
         )
     );
+		register_sidebar(
+        array(
+            'id'            => 'ged-sidebar',
+            'name'          => __( 'Golf Education Sidebar' ),
+            'description'   => __( 'Sidebar to host MPUs on Golf Education page.' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+		register_sidebar(
+        array(
+            'id'            => 'pga-sidebar',
+            'name'          => __( 'PGA News Sidebar' ),
+            'description'   => __( 'Sidebar to host MPUs on PGA News page.' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
     /* Repeat register_sidebar() code for additional sidebars. */
 }

@@ -24,7 +24,7 @@ include_once('php/gs_functions.php');
 	<link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
 
 	<!-- custom golf scotland stylesheets -->
-  <link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/gs-course_list.css" />
+  <link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/gs-styles.css" />
   <link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/gs-footer.css" />
   <link rel="stylesheet" type="text/css" href="<?PHP echo get_template_directory_uri(); ?>/css/dbmNotice.css" />
 

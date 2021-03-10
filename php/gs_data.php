@@ -17,12 +17,12 @@
 */
 // define constants
 // company details
-define ('COMPANY', 'MDA Media Ltd.');
-define ('OWNER', 'MDA Media Ltd.');
+define ('COMPANY', 'MDA Media Ltd');
+define ('OWNER', 'Alan Hunter');
 define ('COMPANYNO', 'SC663153');
-define ('ADDRESS', 'Suite 3 & 4 Orbital House 3 Redwood Crescent, East&nbsp;Kilbride G74 5PA, Scotland');
+define ('ADDRESS', 'Suite 3 & 4 Orbital House, 3 Redwood Crescent, East&nbsp;Kilbride G74 5PA, Scotland');
 define ('TELEPHONE','+44&nbsp;7423&nbsp;608374');
-define ('NAME', 'Golf Scotland');
+define ('NAME', 'golfscotland.net');
 define ('WEBSITE', 'https://www.golfscotland.net');
 define ('EMAIL', 'info@golfscotland.net');
 define ('VATNO', '349&nbsp;9373&nbsp;46');
@@ -37,6 +37,17 @@ define ('MAP_KEY', 'AIzaSyB1uKUoWEHyWBD9KbKg8sJsl2gF1137VT8');
 // navbar seperator
 define('SEPERATOR', '|');
 
+// url constants
+define ('SITE_URL', 'https://www.golfscotland.net/course/');
+define ('IMG_URL', 'https://www.golfscotland.net/wp-content/uploads/');
+
+// social media urls
+define ('FACEBOOK', 'https://www.facebook.com/');
+define ('TWITTER', 'https://twitter.com/');
+define ('INSTAGRAM', 'https://www.instagram.com/');
+define ('YOUTUBE_CHNL', 'https://www.youtube.com/channel/');
+define ('YOUTUBE_VID', 'https://www.youtube.com/embed/');
+
 //policies t&cs data array
 $ftr_navbar_data = [
 	'site map' => 'sitemap',
@@ -44,52 +55,6 @@ $ftr_navbar_data = [
 	'privacy policy' => 'privacy-policy',
 	'disclaimer' => 'disclaimer',
 	'copyright' => 'copyright'
-];
-
-// array of golf course types
-$gs_types = [
-	'Links',
-	'Parkland',
-  'Moorland',
-	'Heathland',
-	'Desert'
-];
-
-// array of golf course regions
-$gs_regions = [
-	'Aberdeen &amp; Grampian',
-	'Angus &amp; Dundee',
-	'Argyll Ayrshire',
-	'Dumfries &amp; Galloway',
-	'Edinburgh &amp; the Lothians',
-	'Fife',
-	'Glasgow &amp; Clyde Valley',
-	'Orkney',
-	'Perthshire',
-	'Stirling &amp; The Trossachs',
-	'The Outer &amp; Inner Hebrides',
-	'The Scottish Borders',
-	'The Scottish Highlands',
-	'The Shetland Islands'
-];
-
-//key features array
-$gs_keyFeatures = [
-	"Trolley Hire",
-	"Catering",
-	"Club Hire",
-	"Clubhouse",
-	"Shower Available",
-	"Changing Rooms",
-	"Driving Range",
-	"Proshop",
-	"Putting Area",
-	"Buggy Hire",
-	"Tuition Available",
-	"Conference Facilities",
-	"Function Room Available",
-	"Corporate Golf",
-	"Society Golf"
 ];
 
 $placeholder = [

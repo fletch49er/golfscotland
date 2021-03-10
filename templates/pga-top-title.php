@@ -1,3 +1,9 @@
+<style>
+.gs-top-title__subheading {
+	font-size: 18px;
+	margin-bottom: 0px;
+}
+</style>
 <?php
 
 $myhome_top                  = true;
@@ -5,6 +11,7 @@ $myhome_top_title_class      = array( 'mh-top-title' );
 $myhome_top_title_title      = '';
 $myhome_top_title_text       = '';
 $myhome_top_title_background = '';
+$myhome_top_title_subtext    = 'Official Satellite Tour to the European Tour offering direct access to the Challenge Tour';
 
 if ( is_home() ) :
 	$myhome_top_title_show = My_Home_Theme()->settings->get( 'top-title-show' );
@@ -130,6 +137,7 @@ if ( $myhome_top ) :
 				<div class="mh-top-title__heading"><?php echo esc_html( $myhome_top_title_title ); ?></div>
 			<?php else : ?>
 				<h1 class="mh-top-title__heading"><?php echo esc_html( $myhome_top_title_title ); ?></h1>
+				<h2 class="gs-top-title__subheading"><?php echo $myhome_top_title_subtext; ?></h2>
 			<?php endif; ?>
 		<?php endif; ?>
 

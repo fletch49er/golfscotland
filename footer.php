@@ -92,7 +92,8 @@ $ftr_navbar_data = [
 					<?php create_navbar($ftr_navbar_data, 0, SEPERATOR); ?>
 				</div><!-- end #gs-ftr-navbar -->
 				<div class="mh-layout">
-					<?php echo wp_kses_post( $myhome_footer->get_copyrights() ); ?>
+					<?php copyright(COMPANY, 2020); ?>
+					<?php get_template_part( 'templates/company_no' ); ?>
 					<?php get_template_part( 'templates/mda_vat' ); ?>
 				</div>
 			</div>
