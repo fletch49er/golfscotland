@@ -182,27 +182,32 @@ foreach ($courses as $course) : ?>
 		</script>
 		<!-- end Google Maps API -->
 
-<?php if($course->img_ad1 != null) : ?>
+<?php if(($course->img_ad1 != null) xor ($course->special_offers != null) xor
+					($course->img_ad1 != null) && ($course->special_offers != null)) : ?>
+		<h3>Special Offers:</h3>
+<?php
+endif;
+
+if($course->img_ad1 != null) : ?>
 		<div id="gs-advertBox">
-<?php if($course->img_ad1_switch == flase) : ?>
-			<a href="<?php  echo $course->website; ?>">
-<?php else : ?>
-			<a href="<?php  echo $course->ad1_url; ?>">
-<?php endif; ?>
+			<a href="<?php echo $course->website; ?>">
 				<img class="gs-advert" src="<?php echo $img_uri.$course->img_ad1; ?>" alt="current advert No.1" />
 			</a>
 		</div><!-- end .gs-advertBox -->
 <?php
-	endif;
+endif;
 
-	if($course->special_offers != null) :
-?>
-		<h3>Special Offers:</h3>
+if(($course->img_ad1 != null) && ($course->special_offers != null)) : ?>
+		<hr style="margin: 20px auto; width: 40%; color: #eee;" />
+<?php
+endif;
+
+if($course->special_offers != null) : ?>
 		<div id="gs-specialOffers">
 <?php echo nl2br(html_entity_decode($course->special_offers)); ?>
 		</div><!-- end #gs-specialOffers-->
 <?php
-	endif;
+endif;
 
 	if($course->feature_switch == 1) :
 		foreach ($features as $feature) : ?>
@@ -259,7 +264,7 @@ foreach ($courses as $course) : ?>
 
 	if ($course->video1 != null) :
 ?>
-		<h2>Gallery:</h2>
+		<h3>Gallery:</h3>
 		<div id="gs-gallery">
 			<div id="gs-video">
 <?php
