@@ -61,7 +61,7 @@ table#gs-allCourse {
 	width: 100%;
 }
 table, th, td {
-	border: none!important;
+	border: none !important;
 }
 table#gs-allCourse tr:nth-child(odd) {
 	background-color: #eee; /* lightgrey */
