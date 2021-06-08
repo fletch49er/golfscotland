@@ -40,6 +40,8 @@ define('SEPERATOR', '|');
 // url constants
 define ('SITE_URL', 'https://www.golfscotland.net/course/');
 define ('IMG_URL', 'https://www.golfscotland.net/wp-content/uploads/');
+define ('IMG_URL2', 'https://www.golfscotland.net/wp-content/themes/myhome/images/');
+
 
 // social media urls
 define ('FACEBOOK', 'https://www.facebook.com/');
@@ -55,19 +57,5 @@ $ftr_navbar_data = [
 	'privacy policy' => 'privacy-policy',
 	'disclaimer' => 'disclaimer',
 	'copyright' => 'copyright'
-];
-
-$placeholder = [
-	'name' => 'club or course name',
-	'address' => 'your address including postcode',
-	'select' => 'select an option',
-	'par' => 'par',
-	'length' => 'yards',
-	'phone' => 'telephone number',
-	'website' => 'https://www.yourdomainname.com',
-	'email' => 'your@emailaddrss.com',
-	'facebook' => 'https://www.facebook.com/yourusername/',
-	'twitter' => 'https://twitter.com/yourusername',
-	'instagram' => 'https://www.instagram.com/yourusername/'
 ];
 ?>

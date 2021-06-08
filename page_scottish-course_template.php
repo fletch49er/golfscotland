@@ -27,7 +27,7 @@ $gs_icon240 = '2020/05/gs-icon240-e1590336869748.png';
 
 get_header();
 
-get_template_part( 'templates/top-title' );
+get_template_part('templates/top-title');
 
 // set uri constants
 $img_uri = IMG_URL;
@@ -72,8 +72,8 @@ foreach ($courses as $course) : ?>
 		<h2>Course Details</h2>
 		<h3>Stats:</h3>
 		<div id="gs-stats">
-			<b>Course Type:</b> <?php echo $course->type; ?>&nbsp;|&nbsp;
-			<b>Length:</b> <?php echo number_format($course->length); ?> yrds&nbsp;|&nbsp;
+			<b>Course Type:</b> <?php echo $course->type; ?>&nbsp;<span class="gs-colour">|</span>&nbsp;
+			<b>Length:</b> <?php echo number_format($course->length); ?> yrds&nbsp;<span class="gs-colour">|</span>&nbsp;
 			<b>Par:</b> <?php echo $course->par; ?>
 		</div><!-- end #gs-stats-->
 
