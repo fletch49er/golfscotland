@@ -1,7 +1,10 @@
 <?php
 /**
  * Template Name: Scottish Courses Page
- */
+*/
+// open link to wp database
+global $wpdb;
+
 // set data query gs_courses table - course details
 $course_query = 'SELECT c.id, c.name, cr.region, ct.type, c.length, c.par, c.top_course, c.img_logo FROM gs_courses AS c INNER JOIN gs_course_types AS ct ON c.type = ct.id INNER JOIN gs_course_regions AS cr ON c.region = cr.id';
 
@@ -46,14 +49,11 @@ if($_GET['region'] == null) {
 // sort by name (ascending)
 $course_query .= 'name ASC';
 // fetch search result
-$courses = $wpdb->get_results("".$course_query."");
-
-// open link to wp database
-global $wpdb;
+$courses = $wpdb->get_results($course_query);
 
 get_header();
 
-get_template_part( 'templates/top-title' );
+get_template_part('templates/top-title');
 
 // set url paths
 $url = SITE_URL;
@@ -72,7 +72,7 @@ $img = '2020/05/gs-icon240-e1590336869748.png';
 					<select id="gs-query-region" name="region">
 						<option value="" selected>All Regions</option>
 <?php
-	$regions = $wpdb->get_results("".$region_query."");
+	$regions = $wpdb->get_results($region_query);
 	foreach($regions as $region) :
 ?>
 						<option value="<?php echo $region->id; ?>"><?php echo $region->region; ?></option>
@@ -83,7 +83,7 @@ $img = '2020/05/gs-icon240-e1590336869748.png';
 					<select id="gs-query-type" name="type">
 						<option value="" selected>All Types</option>
 <?php
-	$types = $wpdb->get_results("".$type_query."");
+	$types = $wpdb->get_results($type_query);
 	foreach($types as $type) :
 ?>
 						<option value="<?php echo $type->id; ?>"><?php echo $type->type; ?></option>
