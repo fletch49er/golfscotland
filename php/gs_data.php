@@ -42,7 +42,6 @@ define ('SITE_URL', 'https://www.golfscotland.net/course/');
 define ('IMG_URL', 'https://www.golfscotland.net/wp-content/uploads/');
 define ('IMG_URL2', 'https://www.golfscotland.net/wp-content/themes/myhome/images/');
 
-
 // social media urls
 define ('FACEBOOK', 'https://www.facebook.com/');
 define ('TWITTER', 'https://twitter.com/');
@@ -50,7 +49,7 @@ define ('INSTAGRAM', 'https://www.instagram.com/');
 define ('YOUTUBE_CHNL', 'https://www.youtube.com/channel/');
 define ('YOUTUBE_VID', 'https://www.youtube.com/embed/');
 
-//policies t&cs data array
+// policies t&cs data array
 $ftr_navbar_data = [
 	'site map' => 'sitemap',
 	'terms &amp; conditions' => 'terms-conditions',

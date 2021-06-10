@@ -150,12 +150,14 @@ else :
     $count = 0;
     // build sql strings
     foreach ($formData as $key => $value) :
-      if ($count < count($formData)-1) {
-        $names .= '`'.$key.'`, ';
-        $values .= '\''.$value.'\', ';
-      } else {
-        $names .= '`'.$key.'`';
-        $values .= '\''.$value.'\'';
+      if($value != null) {
+        if ($count < count($formData)-1) {
+          $names .= '`'.$key.'`, ';
+          $values .= '\''.$value.'\', ';
+        } else {
+          $names .= '`'.$key.'`';
+          $values .= '\''.$value.'\'';
+        }
       }
       $count ++;
     endforeach;

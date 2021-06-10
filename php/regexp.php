@@ -17,6 +17,8 @@
 // set regular expression patterns for form validation
 $namePattern = "/^[\w+\s]+$/";
 $addressPattern = "/^(\d{1,5}[a-zA-Z]?\s)?([A-Z]{1}[a-z\-]+[,\.]?\s)*[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/";
+$regionPattern = "/^\d{1,2}$/";
+$typePattern = "/^\d{1}$/";
 $lengthPattern = "/^\d{4}$/";
 $parPattern  = "/^\d{2}$/";
 $telephonePattern =  "/^((\+44\s?\(0\)\s?\d{2,4})|(\+44\s?(01|02|03|07|08)\d{2,3})|(\+44\s?(1|2|3|7|8)\d{2,3})|(\(\+44\)\s?\d{3,4})|(\(\d{5}\))|((01|02|03|07|08)\d{2,3})|(\d{5}))(\s|-|.)(((\d{3,4})(\s|-)(\d{3,4}))|((\d{6,7})))$/";
